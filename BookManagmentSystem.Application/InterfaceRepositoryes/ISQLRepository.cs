@@ -1,7 +1,7 @@
 ﻿using BookManagmentSystem.Domain.Entities;
 
 
-namespace BookManagmentSystem.Domain.Repositories
+namespace BookManagmentSystem.Application.InterfaceRepositories
 {
     public interface ISQLRepository<T> where T : BaseEntity
     {

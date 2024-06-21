@@ -11,6 +11,6 @@ namespace BookManagmentSystem.Application.CQRS.Orders.Commands
     public class CreateOrderCommand : IRequest<(Order, string)>
     {
         public int CustomerId { get; set; }
-        public List<OrderItemDto> OrderItems { get; set; }
+        public List<OrderItemDto>? OrderItems { get; set; }
     }
 }

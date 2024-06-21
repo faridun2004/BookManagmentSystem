@@ -1,5 +1,4 @@
-﻿
-using BookManagmentSystem.Application.Contracts;
+﻿using BookManagmentSystem.Domain.Entities;
 using BookManagmentSystem.Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 

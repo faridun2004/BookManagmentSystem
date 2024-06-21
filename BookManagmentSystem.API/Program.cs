@@ -20,9 +20,10 @@ builder.Services.AddControllers()
     .AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAutoMapper(typeof(EmployeeMappings));
-builder.Services.AddAutoMapper(typeof(CategoriesMapping));
+builder.Services.AddAutoMapper(typeof(CategoriesMappings));
 builder.Services.AddAutoMapper(typeof(BookMappings));
 builder.Services.AddAutoMapper(typeof(AuthorMappings));
+builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateEmployeeCommand).Assembly));
 builder.Services.AddMediatR(cfg=>cfg.RegisterServicesFromAssembly(typeof(CreateCategoryCommand).Assembly));

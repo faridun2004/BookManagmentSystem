@@ -10,6 +10,7 @@ namespace BookManagmentSystem.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class AuthorsController : ControllerBase
     {
         private readonly IMediator _mediator;

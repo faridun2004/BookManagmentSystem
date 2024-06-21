@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace BookManagmentSystem.Application.Mappings
 {
-    public class CategoriesMapping: Profile
+    public class CategoriesMappings: Profile
     {
-        public CategoriesMapping() 
+        public CategoriesMappings() 
         {
             CreateMap<CreateCategoryCommand, Category>();
 

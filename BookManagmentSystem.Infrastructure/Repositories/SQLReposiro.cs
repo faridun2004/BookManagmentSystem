@@ -1,9 +1,7 @@
-﻿using BookManagmentSystem.Application.Common.Interfaces;
-using BookManagmentSystem.Domain.Entities;
+﻿using BookManagmentSystem.Domain.Entities;
 using BookManagmentSystem.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
-using BookManagmentSystem.Domain.Repositories;
+using BookManagmentSystem.Application.InterfaceRepositories;
 
 namespace BookManagmentSystem.Infrastructure.Repositories
 {
