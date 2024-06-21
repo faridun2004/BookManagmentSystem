@@ -1,13 +1,7 @@
-﻿
-using BookManagmentSystem.Application.Common.Interfaces;
+﻿using BookManagmentSystem.Application.Common.Interfaces;
+using BookManagmentSystem.Application.InterfaceRepositories;
 using BookManagmentSystem.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using BookManagmentSystem.Domain.Repositories;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookManagmentSystem.Infrastructure.Services
 {

@@ -1,6 +1,6 @@
 ﻿using BookManagmentSystem.Application.Common.Interfaces;
+using BookManagmentSystem.Application.InterfaceRepositories;
 using BookManagmentSystem.Domain.Entities;
-using BookManagmentSystem.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,5 +1,4 @@
-﻿using BookManagmentSystem.Application.Contracts;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using BookManagmentSystem.Infrastructure.Persistence;
 using System.Security.Claims;

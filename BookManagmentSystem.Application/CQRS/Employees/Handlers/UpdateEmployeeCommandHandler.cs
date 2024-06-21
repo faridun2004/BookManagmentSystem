@@ -26,7 +26,7 @@ namespace BookManagmentSystem.Application.CQRS.Employees.Handlers
         public Task<(bool, string)> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
         {
             var employee = _mapper.Map<Employee>(request);
-            var result = _service.TryUpdate(request.EmployeeId, employee, out string message); ;
+            var result = _service.TryUpdate(request.Id, employee, out string message); ;
 
             return Task.FromResult((result, message));
         }
