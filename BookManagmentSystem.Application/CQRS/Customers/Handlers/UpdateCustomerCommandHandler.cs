@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using BookManagmentSystem.Application.Common.Interfaces;
 using BookManagmentSystem.Application.CQRS.Customers.Commands;
 using BookManagmentSystem.Application.CQRS.Employees.Commands;
 using BookManagmentSystem.Domain.Entities;
@@ -9,6 +8,7 @@ using MediatR;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BookManagmentSystem.Application.Interfaces;
 
 namespace BookManagmentSystem.Application.CQRS.Customers.Handlers
 {

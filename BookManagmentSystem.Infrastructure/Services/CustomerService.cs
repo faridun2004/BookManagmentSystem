@@ -1,5 +1,5 @@
-﻿using BookManagmentSystem.Application.Common.Interfaces;
-using BookManagmentSystem.Application.InterfaceRepositories;
+﻿using BookManagmentSystem.Application.InterfaceRepositories;
+using BookManagmentSystem.Application.Interfaces;
 using BookManagmentSystem.Domain.Entities;
 using System;
 using System.Collections.Generic;

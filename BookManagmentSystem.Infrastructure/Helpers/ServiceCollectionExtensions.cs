@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Optivem.Framework.Core.Domain;
 
 namespace BookManagmentSystem.Infrastructure.Helpers
 {
@@ -38,4 +39,4 @@ namespace BookManagmentSystem.Infrastructure.Helpers
                 });
         }
     }
-    }
+}

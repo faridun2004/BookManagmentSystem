@@ -1,5 +1,9 @@
-﻿using BookManagmentSystem.Application.CQRS.Authors.Commands;
+﻿using BookManagmentSystem.Application.CQRS.Authors.Commands.Create;
+using BookManagmentSystem.Application.CQRS.Authors.Commands.Delete;
+using BookManagmentSystem.Application.CQRS.Authors.Commands.Update;
 using BookManagmentSystem.Application.CQRS.Authors.Queries;
+using BookManagmentSystem.Application.CQRS.Authors.Queries.GetAll;
+using BookManagmentSystem.Application.CQRS.Authors.Queries.GetById;
 using BookManagmentSystem.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -10,7 +14,6 @@ namespace BookManagmentSystem.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize]
     public class AuthorsController : ControllerBase
     {
         private readonly IMediator _mediator;

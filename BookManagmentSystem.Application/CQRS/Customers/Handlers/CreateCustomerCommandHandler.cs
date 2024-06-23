@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using BookManagmentSystem.Application.Common.Interfaces;
 using BookManagmentSystem.Application.CQRS.Customers.Commands;
+using BookManagmentSystem.Application.Interfaces;
 using BookManagmentSystem.Domain.Entities;
 using MediatR;
 using System;

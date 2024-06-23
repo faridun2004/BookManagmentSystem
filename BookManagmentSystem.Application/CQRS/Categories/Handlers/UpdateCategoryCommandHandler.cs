@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using BookManagmentSystem.Application.Common.Interfaces;
 using BookManagmentSystem.Application.CQRS.Categories.Commands;
+using BookManagmentSystem.Application.Interfaces;
 using BookManagmentSystem.Domain.Entities;
 using MediatR;
 
 namespace BookManagmentSystem.Application.CQRS.Categories.Handlers
 {
-   
+
     public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, (bool, string)>
     {
         private ICategoryService _service;
