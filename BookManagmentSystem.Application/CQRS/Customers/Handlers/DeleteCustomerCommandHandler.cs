@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using BookManagmentSystem.Application.Common.Interfaces;
 using BookManagmentSystem.Application.CQRS.Customers.Commands;
 using BookManagmentSystem.Application.CQRS.Employees.Commands;
+using BookManagmentSystem.Application.Interfaces;
 using MediatR;
 
 namespace BookManagmentSystem.Application.CQRS.Customers.Handlers

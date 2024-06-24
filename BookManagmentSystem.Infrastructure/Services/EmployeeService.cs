@@ -1,5 +1,5 @@
-﻿using BookManagmentSystem.Application.Common.Interfaces;
-using BookManagmentSystem.Application.InterfaceRepositories;
+﻿using BookManagmentSystem.Application.InterfaceRepositories;
+using BookManagmentSystem.Application.Interfaces;
 using BookManagmentSystem.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -34,7 +34,7 @@ namespace BookManagmentSystem.Infrastructure.Services
 
         public Employee TryCreate(Employee item, out string message)
         {
-            if (string.IsNullOrEmpty(item.FullName)|| string.IsNullOrEmpty(item.LastName))
+            if (string.IsNullOrEmpty(item.FirstName)|| string.IsNullOrEmpty(item.LastName))
             {
                 message = "The first name or last name is be empty";
                 return default;
@@ -44,7 +44,6 @@ namespace BookManagmentSystem.Infrastructure.Services
                 return _repository.TryCreate(item, out message);
             }
         }
-
         public bool TryUpdate(Guid id, Employee item, out string message)
         {
             var _item = _repository.GetById(id).GetAwaiter().GetResult();

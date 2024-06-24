@@ -3,21 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManagmentSystem.Domain", "BookManagmentSystem.Domain\BookManagmentSystem.Domain.csproj", "{A77DFC2B-6D2A-4F25-A23F-CFD2C0083250}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManagmentSystem.Domain", "BookManagmentSystem.Domain\BookManagmentSystem.Domain.csproj", "{A77DFC2B-6D2A-4F25-A23F-CFD2C0083250}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManagmentSystem.Application", "BookManagmentSystem.Application\BookManagmentSystem.Application.csproj", "{CE1AA87A-555D-4040-AE9C-4D75F6D57F1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManagmentSystem.Application", "BookManagmentSystem.Application\BookManagmentSystem.Application.csproj", "{CE1AA87A-555D-4040-AE9C-4D75F6D57F1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManagmentSystem.Infrastructure", "BookManagmentSystem.Infrastructure\BookManagmentSystem.Infrastructure.csproj", "{F1A9F3AD-B01B-44D6-A29C-E3F40993AB6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManagmentSystem.Infrastructure", "BookManagmentSystem.Infrastructure\BookManagmentSystem.Infrastructure.csproj", "{F1A9F3AD-B01B-44D6-A29C-E3F40993AB6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManagmentSystem.API", "BookManagmentSystem.API\BookManagmentSystem.API.csproj", "{872B6BBE-BB4C-4746-B689-BD8BE3D316D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManagmentSystem.API", "BookManagmentSystem.API\BookManagmentSystem.API.csproj", "{872B6BBE-BB4C-4746-B689-BD8BE3D316D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManagementSystem.NUnitTests", "Test.NUnit\BookManagementSystem.NUnitTests.csproj", "{94A04F54-8963-4B64-B7C5-D5889A120249}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5C50DC1E-4841-4DFB-A525-2B820D90078D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{817B7108-612D-4B71-87FC-898F157FBA77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManagementSystem.NUnit.IntegrationTests", "BookManagementSystem.NUnit.IntegrationTests\BookManagementSystem.NUnit.IntegrationTests.csproj", "{FB0BA0D9-A2AE-4D13-9BDA-AB56F9325E53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A77DFC2B-6D2A-4F25-A23F-CFD2C0083250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -36,5 +41,27 @@ Global
 		{872B6BBE-BB4C-4746-B689-BD8BE3D316D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{872B6BBE-BB4C-4746-B689-BD8BE3D316D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{872B6BBE-BB4C-4746-B689-BD8BE3D316D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94A04F54-8963-4B64-B7C5-D5889A120249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94A04F54-8963-4B64-B7C5-D5889A120249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94A04F54-8963-4B64-B7C5-D5889A120249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94A04F54-8963-4B64-B7C5-D5889A120249}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB0BA0D9-A2AE-4D13-9BDA-AB56F9325E53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB0BA0D9-A2AE-4D13-9BDA-AB56F9325E53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB0BA0D9-A2AE-4D13-9BDA-AB56F9325E53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB0BA0D9-A2AE-4D13-9BDA-AB56F9325E53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A77DFC2B-6D2A-4F25-A23F-CFD2C0083250} = {817B7108-612D-4B71-87FC-898F157FBA77}
+		{CE1AA87A-555D-4040-AE9C-4D75F6D57F1C} = {817B7108-612D-4B71-87FC-898F157FBA77}
+		{F1A9F3AD-B01B-44D6-A29C-E3F40993AB6E} = {817B7108-612D-4B71-87FC-898F157FBA77}
+		{872B6BBE-BB4C-4746-B689-BD8BE3D316D0} = {817B7108-612D-4B71-87FC-898F157FBA77}
+		{94A04F54-8963-4B64-B7C5-D5889A120249} = {5C50DC1E-4841-4DFB-A525-2B820D90078D}
+		{FB0BA0D9-A2AE-4D13-9BDA-AB56F9325E53} = {5C50DC1E-4841-4DFB-A525-2B820D90078D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51D61683-7639-466D-A7A3-E001A78FCA1A}
 	EndGlobalSection
 EndGlobal

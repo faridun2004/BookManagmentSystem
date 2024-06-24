@@ -1,9 +1,7 @@
-﻿using BookManagmentSystem.Application.Common.Interfaces;
-using BookManagmentSystem.Application.CQRS.Employees.Commands;
+﻿using BookManagmentSystem.Application.CQRS.Employees.Commands;
 using BookManagmentSystem.Application.CQRS.Employees.Queries;
 using BookManagmentSystem.Domain.Entities;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookManagmentSystem.API.Controllers

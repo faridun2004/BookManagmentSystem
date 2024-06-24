@@ -8,10 +8,10 @@ namespace BookManagmentSystem.Domain.Entities
 {
     public class CartItem : BaseEntity
     {
-        public Guid CartId { get; set; }
-        public Cart Cart { get; set; }
         public Guid BookId { get; set; }
-        public Book Book { get; set; }
+        public string Name { get; set; }
         public int Quantity { get; set; }
+        public decimal Price { get; set; }
+        public int CartItemId { get; internal set; }
     }
 }

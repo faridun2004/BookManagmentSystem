@@ -1,5 +1,8 @@
 ﻿using BookManagmentSystem.Application.CQRS.Categories.Commands;
 using BookManagmentSystem.Application.CQRS.Categories.Queries;
+using BookManagmentSystem.Application.CQRS.Employees.Commands;
+using BookManagmentSystem.Application.CQRS.Employees.Queries;
+using BookManagmentSystem.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,45 +20,53 @@ namespace BookManagmentSystem.API.Controllers
         {
             _mediator = mediator;
         }
+        [HttpGet("AllEmployee")]
+        public async Task<ActionResult<List<Category>>> GetAllCategories()
+        {
+            var query = new GetAllCategoriesQuery();
+            var employees = await _mediator.Send(query);
+            return Ok(employees);
+        }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Category>> GetCategoryById(Guid id)
+        {
+            var query = new GetCategoryByIdQuery() { Id = id };
+            var employee = await _mediator.Send(query);
+            if (employee == null)
+                return NotFound();
+
+            return Ok(employee);
+        }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateCategoryCommand command)
+        public async Task<ActionResult<Category>> CreateCategory(CreateCategoryCommand command)
         {
-            var result = await _mediator.Send(command);
-            return Ok(result);
-        }
-        [AllowAnonymous]
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            var result = await _mediator.Send(new GetAllCategoriesQuery());
-            return Ok(result);
-        }
-        [AllowAnonymous]
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(Guid id)
-        {
-            var result = await _mediator.Send(new GetCategoryByIdQuery { Id = id });
-            return Ok(result);
+            var (createdItem, message) = await _mediator.Send(command);
+            if (createdItem is null)
+                return BadRequest(message);
+
+            return Ok(createdItem);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, UpdateCategoryCommand command)
+        public async Task<ActionResult<string>> UpdateCategory(Guid id, UpdateCategoryCommand command)
         {
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
+            command.Id = id;
+            var (result, message) = await _mediator.Send(command);
+            if (result)
+                return Ok(message);
 
-            await _mediator.Send(command);
-            return NoContent();
+            return BadRequest(message);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(Guid id)
+        [HttpDelete]
+        public async Task<IActionResult> DeleteCategory(DeleteCategoryCommand deleteEmployee)
         {
-            await _mediator.Send(new DeleteCategoryCommand { Id = id });
-            return NoContent();
+            var (result, message) = await _mediator.Send(deleteEmployee);
+            if (result)
+                return Ok(message);
+
+            return BadRequest(message);
         }
     }
 }

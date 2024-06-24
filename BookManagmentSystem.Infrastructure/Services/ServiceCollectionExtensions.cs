@@ -1,5 +1,5 @@
-﻿using BookManagmentSystem.Application.Common.Interfaces;
-using BookManagmentSystem.Application.InterfaceRepositories;
+﻿using BookManagmentSystem.Application.InterfaceRepositories;
+using BookManagmentSystem.Application.Interfaces;
 using BookManagmentSystem.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 

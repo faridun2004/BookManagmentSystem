@@ -19,14 +19,10 @@ namespace BookManagmentSystem.Domain.Entities
         public string? Username { get; set; }
 
         public string? Password { get; set; }
-        [Required]
-       
         public string? Role { get; set; }
         public string? RefreshToken { get; set; }
         [JsonIgnore]
-        public bool IsBlocked
-        {
-            get;
-        }
+        public bool IsBlocked {  get; set; }
+        
     }
 }
