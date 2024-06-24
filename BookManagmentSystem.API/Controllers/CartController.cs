@@ -29,9 +29,9 @@ namespace BookManagmentSystem.API.Controllers
         }
 
         [HttpDelete("{productId}")]
-        public ActionResult RemoveFromCart(int productId)
+        public ActionResult RemoveFromCart(Guid bookId)
         {
-            _cartService.RemoveFromCart(productId);
+            _cartService.RemoveFromCart(bookId);
             return Ok();
         }
 

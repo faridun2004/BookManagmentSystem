@@ -11,8 +11,8 @@ namespace BookManagmentSystem.Application.Interfaces
     {
         Cart GetCart();
         void AddToCart(CartItem item);
-        void RemoveFromCart(int productId);
+        void RemoveFromCart(Guid bookId);
         void ClearCart();
-        void UpdateQuantity(int productId, int newQuantity);
+        void UpdateQuantity(Guid bookId, int newQuantity);
     }
 }
