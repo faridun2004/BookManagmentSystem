@@ -6,7 +6,7 @@ using NSubstitute;
 
 namespace Test.NUnit.CommonData
 {
-    public abstract class BaseTestEntity
+    public abstract class EmployeeTestEntity
     {
         protected IEmployeeService _workerService;
         protected ISQLRepository<Employee> _repository;

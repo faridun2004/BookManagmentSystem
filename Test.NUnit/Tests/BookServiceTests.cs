@@ -12,7 +12,7 @@ using Test.NUnit.CommonData;
 namespace Test.NUnit.Tests
 {
     [TestFixture]
-    public class BookServiceTests: BookEntity
+    public class BookServiceTests: BookTestEntity
     {
         private Mock<ISQLRepository<Book>> _mockRepository;
         private BookService _bookService;

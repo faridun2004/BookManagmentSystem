@@ -1,17 +1,10 @@
 ﻿using BookManagmentSystem.Domain.Entities;
 using NSubstitute;
-using NUnit.Framework;
-using Optivem.Framework.Core.Domain;
-using System;
-using System.Collections.Generic;
 using Test.NUnit.CommonData;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Test.NUnit.Tests
 {
-    public class EmployeeServiceTests : BaseTestEntity
+    public class EmployeeServiceTests : EmployeeTestEntity
     {
         [Test]
         public void GetAll_ShouldReturnAllWorkers()

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookManagmentSystem.Domain.Entities
 {
-    public  class Person : BaseEntity
+    public abstract class Person : BaseEntity
     {
         public string? FirstName { get; set; }
 

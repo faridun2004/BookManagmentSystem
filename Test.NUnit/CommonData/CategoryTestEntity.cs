@@ -9,18 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test.NUnit.CommonData
+namespace BookManagementSystem.NUnitTests.CommonData
 {
-    public abstract class BookEntity
+    public abstract class CategoryTestEntity
     {
-        protected IBookService _workerService;
-        protected ISQLRepository<Book> _repository;
-
+        protected ICategoryService _categoryService;
+        protected ISQLRepository<Category> _repository;
         [SetUp]
         public void SetUp()
         {
-            _repository = Substitute.For<ISQLRepository<Book>>();
-            _workerService = new BookService(_repository);
+            _repository = Substitute.For<ISQLRepository<Category>>();
+            _categoryService = new CategoryService(_repository);
         }
     }
 }
