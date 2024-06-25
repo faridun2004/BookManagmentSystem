@@ -11,6 +11,11 @@ using BookManagmentSystem.Application.Common.Mappings;
 using BookManagmentSystem.Application.CQRS.Authors.Commands.Create;
 using BookManagmentSystem.Application.CQRS.Books.Commands.Create;
 using FluentValidation;
+using FluentValidation.AspNetCore;
+using BookManagmentSystem.Application.CQRS.Authors.Commands.Delete;
+using BookManagmentSystem.Application.CQRS.Authors.Commands.Update;
+using BookManagmentSystem.Application.CQRS.Books.Commands.Delete;
+using BookManagmentSystem.Application.CQRS.Books.Commands.Update;
 public class Program
 {
     public static void Main(string[] args)
@@ -34,7 +39,16 @@ public class Program
         builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateCategoryCommand).Assembly));
         builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateAuthorCommand).Assembly));
         builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateBookCommand).Assembly));
+        builder.Services.AddFluentValidationAutoValidation();
+
+        builder.Services.AddValidatorsFromAssemblyContaining<CreateBookCommandValidator>();
+        builder.Services.AddValidatorsFromAssemblyContaining<DeleteBookCommandValidator>();
+        builder.Services.AddValidatorsFromAssemblyContaining<UpdateBookCommandValidator>();
+
         builder.Services.AddValidatorsFromAssemblyContaining<CreateAuthorCommandValidator>();
+        builder.Services.AddValidatorsFromAssemblyContaining<DeleteAuthorCommandValidator>();
+        builder.Services.AddValidatorsFromAssemblyContaining<UpdateAuthorCommandValidator>();
+
         builder.Services.AddSwaggerGen(c =>
         {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "Book application APIs", Version = "v1" });

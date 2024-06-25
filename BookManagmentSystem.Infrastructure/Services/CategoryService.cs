@@ -56,6 +56,7 @@ namespace BookManagmentSystem.Infrastructure.Services
             else
             {
                 _item.Name = item.Name;
+                _item.Books = item.Books;
 
                 return _repository.TryUpdate(_item, out message);
             }

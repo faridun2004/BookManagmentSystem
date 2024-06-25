@@ -28,7 +28,7 @@ namespace BookManagmentSystem.API.Controllers
             return Ok();
         }
 
-        [HttpDelete("{productId}")]
+        [HttpDelete("{bookId}")]
         public ActionResult RemoveFromCart(Guid bookId)
         {
             _cartService.RemoveFromCart(bookId);

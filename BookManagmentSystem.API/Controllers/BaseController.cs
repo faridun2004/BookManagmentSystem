@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace BookManagmentSystem.API.Controllers
 {
     [ApiController]
-    [Authorize]
     public abstract class BaseController<
     TCreateCommand,
     TUpdateCommand,
@@ -33,8 +32,13 @@ namespace BookManagmentSystem.API.Controllers
         [HttpGet("{id}")]
         public virtual async Task<ActionResult<TDto>> GetById(TKey id)
         {
-            var query = (TGetByIdQuery)Activator.CreateInstance(typeof(TGetByIdQuery), id);
-            var item = await _mediator.Send(query);
+            var query = Activator.CreateInstance<TGetByIdQuery>();
+            var property = typeof(TGetByIdQuery).GetProperty("Id");
+            if (property != null && property.PropertyType == typeof(TKey))
+            {
+                property.SetValue(query, id);
+            }
+            var item = await _mediator.Send((IRequest<TDto>)query);
             if (item == null)
                 return NotFound();
 
@@ -84,5 +88,4 @@ namespace BookManagmentSystem.API.Controllers
             return BadRequest(message);
         }
     }
-
 }

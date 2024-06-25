@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using BookManagmentSystem.Domain.Entities;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace BookManagmentSystem.Application.CQRS.Categories.Commands
         [JsonIgnore]
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public ICollection<Book> Books { get; set; }
     }
 }
