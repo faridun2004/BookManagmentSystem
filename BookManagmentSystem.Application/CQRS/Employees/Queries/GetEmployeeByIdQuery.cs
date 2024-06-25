@@ -11,5 +11,16 @@ namespace BookManagmentSystem.Application.CQRS.Employees.Queries
     public class GetEmployeeByIdQuery : IRequest<Employee>
     {
         public Guid Id { get; set; }
+
+        // Публичный конструктор без параметров
+        public GetEmployeeByIdQuery()
+        {
+        }
+
+        // Вариант конструктора с параметром
+        public GetEmployeeByIdQuery(Guid id)
+        {
+            Id = id;
+        }
     }
 }

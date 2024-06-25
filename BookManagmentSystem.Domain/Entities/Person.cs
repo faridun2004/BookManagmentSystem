@@ -22,7 +22,7 @@ namespace BookManagmentSystem.Domain.Entities
         public string? Role { get; set; }
         public string? RefreshToken { get; set; }
         [JsonIgnore]
-        public bool IsBlocked {  get; set; }
+        public bool IsBlocked {  get;  }
         
     }
 }
