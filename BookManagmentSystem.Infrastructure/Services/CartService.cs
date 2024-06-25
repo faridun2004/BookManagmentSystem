@@ -1,10 +1,5 @@
 ﻿using BookManagmentSystem.Domain.Entities;
-using Microsoft.AspNetCore.Cors.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BookManagmentSystem.Application.Interfaces;
 
 namespace BookManagmentSystem.Infrastructure.Services
 {
