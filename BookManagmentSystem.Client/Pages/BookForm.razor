@@ -1,0 +1,90 @@
+﻿@page "/create-book"
+@page "/edit-book/{Id:int}"
+@using BookManagmentSystem.Client.Domain
+@using BookManagmentSystem.Client.Services
+@inject IBookService ProductService
+@inject NavigationManager NavigationManager
+
+<h3>@(isEdit ? "Edit Product" : "Create Product")</h3>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+
+<EditForm Model="product" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label>Name:</label>
+        <InputText @bind-Value="product.Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Description:</label>
+        <InputTextArea @bind-Value="product.Author.FullName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Price:</label>
+        <InputNumber @bind-Value="product.Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Image:</label>
+        <InputFile OnChange="HandleFileSelected" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+
+@code {
+    [Parameter] public Guid Id { get; set; }
+    private Book product = new Book();
+    private IBrowserFile? imageFile;
+    private bool isEdit;
+    private string? errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (isEdit)
+        {
+            product = await ProductService.GetProductById(Id);
+        }
+    }
+
+    private void HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        imageFile = e.File;
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            var content = new MultipartFormDataContent();
+            content.Add(new StringContent(product.Title), "Name");
+            content.Add(new StringContent(product.Category.Name), "Category");
+            content.Add(new StringContent(product.Price.ToString()), "Price");
+
+            if (imageFile != null)
+            {
+                var fileContent = new StreamContent(imageFile.OpenReadStream());
+                fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(imageFile.ContentType);
+                content.Add(fileContent, "ImageFile", imageFile.Name);
+            }
+
+            if (isEdit)
+            {
+                await ProductService.UpdateProduct(product, content);
+            }
+            else
+            {
+                await ProductService.AddProduct(product, content);
+            }
+
+            NavigationManager.NavigateTo("/books");
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+ }

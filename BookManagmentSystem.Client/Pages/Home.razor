@@ -1,0 +1,28 @@
+﻿@page "/"
+@using BookManagmentSystem.Client.Pages
+@using BookManagmentSystem.Client.Domain
+
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">Добро пожаловать в наш книжный магазин!</h1>
+        <p class="lead">Наслаждайтесь лучшими книгами и уютной атмосферой.</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="#menu" role="button">Посмотреть книги</a>
+    </div>
+</div>
+<Menu />
+<div class="container" id="menu">
+    <h2>Наше меню</h2>
+    <div class="row">
+        <!-- Ваше меню -->
+    </div>
+</div>
+
+@code {
+    private bool isPanelOpen = false;
+
+    private void TogglePanel()
+    {
+        isPanelOpen = !isPanelOpen;
+    }
+}

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BookManagmentSystem.Application.CQRS.Categories.Commands;
+using BookManagmentSystem.Application.CQRS.Categories.Commands.Create;
 using BookManagmentSystem.Domain.Entities;
 using System;
 using System.Collections.Generic;

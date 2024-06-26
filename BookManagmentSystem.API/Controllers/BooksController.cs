@@ -5,60 +5,27 @@ using BookManagmentSystem.Application.CQRS.Books.Commands.Update;
 using BookManagmentSystem.Application.CQRS.Books.Queries;
 using BookManagmentSystem.Application.CQRS.Books.Queries.GetAll;
 using BookManagmentSystem.Application.CQRS.Books.Queries.GetById;
+using BookManagmentSystem.Application.CQRS.Customers.Commands;
+using BookManagmentSystem.Application.CQRS.Customers.Queries;
+using BookManagmentSystem.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookManagmentSystem.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class BooksController : ControllerBase
+    [Route("Book")]
+    public class BooksController : BaseController<
+    CreateBookCommand,
+    UpdateBookCommand,
+    DeleteBookCommand,
+    GetBookByIdQuery,
+    GetAllBooksQuery,
+    Book,
+    Guid>
     {
-        private readonly IMediator _mediator;
-
-        public BooksController(IMediator mediator)
+        public BooksController(IMediator mediator) : base(mediator)
         {
-            _mediator = mediator;
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            var result = await _mediator.Send(new GetAllBooksQuery());
-            return Ok(result);
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(Guid id)
-        {
-            var result = await _mediator.Send(new GetBookByIdQuery { Id = id });
-            return Ok(result);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Create(CreateBookCommand command)
-        {
-            var result = await _mediator.Send(command);
-            return CreatedAtAction(nameof(GetById), new { id = result }, result);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, UpdateBookCommand command)
-        {
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
-
-            await _mediator.Send(command);
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(Guid id)
-        {
-            await _mediator.Send(new DeleteBookCommand { Id = id });
-            return NoContent();
         }
     }
 }
