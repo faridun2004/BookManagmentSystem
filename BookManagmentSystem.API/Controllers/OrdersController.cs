@@ -1,5 +1,9 @@
-﻿using BookManagmentSystem.Application.CQRS.Orders.Commands;
+﻿using BookManagmentSystem.Application.CQRS.Orders.Commands.Create;
+using BookManagmentSystem.Application.CQRS.Orders.Commands.Delete;
+using BookManagmentSystem.Application.CQRS.Orders.Commands.Update;
 using BookManagmentSystem.Application.CQRS.Orders.Queries;
+using BookManagmentSystem.Application.CQRS.Orders.Queries.GetAll;
+using BookManagmentSystem.Application.CQRS.Orders.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

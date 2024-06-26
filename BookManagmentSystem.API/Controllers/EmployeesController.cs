@@ -1,5 +1,8 @@
-﻿using BookManagmentSystem.Application.CQRS.Employees.Commands;
-using BookManagmentSystem.Application.CQRS.Employees.Queries;
+﻿using BookManagmentSystem.Application.CQRS.Employees.Commands.Create;
+using BookManagmentSystem.Application.CQRS.Employees.Commands.Delete;
+using BookManagmentSystem.Application.CQRS.Employees.Commands.Update;
+using BookManagmentSystem.Application.CQRS.Employees.Queries.GetAll;
+using BookManagmentSystem.Application.CQRS.Employees.Queries.GetById;
 using BookManagmentSystem.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

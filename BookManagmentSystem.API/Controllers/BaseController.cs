@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BookManagmentSystem.API.Controllers
 {
     [ApiController]
+    
     public abstract class BaseController<
     TCreateCommand,
     TUpdateCommand,
@@ -21,7 +22,7 @@ namespace BookManagmentSystem.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public virtual async Task<ActionResult<List<TDto>>> GetAll()
         {
             var query = Activator.CreateInstance<TGetAllQuery>();

@@ -16,6 +16,18 @@ using BookManagmentSystem.Application.CQRS.Authors.Commands.Delete;
 using BookManagmentSystem.Application.CQRS.Authors.Commands.Update;
 using BookManagmentSystem.Application.CQRS.Books.Commands.Delete;
 using BookManagmentSystem.Application.CQRS.Books.Commands.Update;
+using BookManagmentSystem.Application.CQRS.Employees.Commands.Create;
+using BookManagmentSystem.Application.CQRS.Categories.Commands.Create;
+using BookManagmentSystem.Application.CQRS.Employees.Commands.Delete;
+using BookManagmentSystem.Application.CQRS.Employees.Commands.Update;
+using BookManagmentSystem.Application.CQRS.Customers.Commands.Create;
+using BookManagmentSystem.Application.CQRS.Customers.Commands.Delete;
+using BookManagmentSystem.Application.CQRS.Customers.Commands.Update;
+using BookManagmentSystem.Application.CQRS.Categories.Commands.Delete;
+using BookManagmentSystem.Application.CQRS.Categories.Commands.Update;
+using BookManagmentSystem.Application.CQRS.Orders.Commands.Create;
+using BookManagmentSystem.Application.CQRS.Orders.Commands.Delete;
+using BookManagmentSystem.Application.CQRS.Orders.Commands.Update;
 public class Program
 {
     public static void Main(string[] args)
@@ -33,14 +45,16 @@ public class Program
         builder.Services.AddAutoMapper(typeof(CategoriesMappings));
         builder.Services.AddAutoMapper(typeof(BookMappings));
         builder.Services.AddAutoMapper(typeof(AuthorMappings));
+        builder.Services.AddAutoMapper(typeof(CustomerMappings));
+        builder.Services.AddAutoMapper(typeof(OrderMappings));
         builder.Services.AddAutoMapper(typeof(Program));
         builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
         builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateEmployeeCommand).Assembly));
         builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateCategoryCommand).Assembly));
         builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateAuthorCommand).Assembly));
         builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateBookCommand).Assembly));
-        builder.Services.AddFluentValidationAutoValidation();
 
+        builder.Services.AddFluentValidationAutoValidation();
         builder.Services.AddValidatorsFromAssemblyContaining<CreateBookCommandValidator>();
         builder.Services.AddValidatorsFromAssemblyContaining<DeleteBookCommandValidator>();
         builder.Services.AddValidatorsFromAssemblyContaining<UpdateBookCommandValidator>();
@@ -48,6 +62,22 @@ public class Program
         builder.Services.AddValidatorsFromAssemblyContaining<CreateAuthorCommandValidator>();
         builder.Services.AddValidatorsFromAssemblyContaining<DeleteAuthorCommandValidator>();
         builder.Services.AddValidatorsFromAssemblyContaining<UpdateAuthorCommandValidator>();
+
+        builder.Services.AddValidatorsFromAssemblyContaining<CreateEmployeeCommandValidator>();
+        builder.Services.AddValidatorsFromAssemblyContaining<DeleteEmployeeCommandValidator>();
+        builder.Services.AddValidatorsFromAssemblyContaining<UpdateEmployeeCommandValidator>();
+
+        builder.Services.AddValidatorsFromAssemblyContaining<CreateCustomerCommandValidator>();
+        builder.Services.AddValidatorsFromAssemblyContaining<DeleteCustomerCommandValidator>();
+        builder.Services.AddValidatorsFromAssemblyContaining<UpdateCustomerCommandValidator>();
+
+        builder.Services.AddValidatorsFromAssemblyContaining<CreateCategoryCommandValidator>();
+        builder.Services.AddValidatorsFromAssemblyContaining<DeleteCategoryCommandValidator>();
+        builder.Services.AddValidatorsFromAssemblyContaining<UpdateCategoryCommandValidator>();
+
+        builder.Services.AddValidatorsFromAssemblyContaining<CreateOrderCommandValidator>();
+        builder.Services.AddValidatorsFromAssemblyContaining<DeleteOrderCommandValidator>();
+        builder.Services.AddValidatorsFromAssemblyContaining<UpdateOrderCommandValidator>();
 
         builder.Services.AddSwaggerGen(c =>
         {

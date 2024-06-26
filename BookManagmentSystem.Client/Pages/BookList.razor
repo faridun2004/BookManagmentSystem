@@ -1,0 +1,59 @@
+﻿@page "/books"
+@using BookManagmentSystem.Client.Domain
+@using BookManagmentSystem.Client.Services
+@inject IBookService BookService
+@inject NavigationManager NavigationManager
+
+<h3>Books</h3>
+
+@if (books == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        @foreach (var book in books)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:5032/@book.ImageUrl" class="card-img-top" alt="@book.Title" style="height: 220px; object-fit: cover;" onerror="this.onerror=null;">
+                    <div class="card-body">
+                        <h5 class="card-title">@book.Title</h5>
+                        <p class="card-text">@book.Category</p>
+                        <p class="card-text"><strong>Price:</strong> @book.Price Сомонӣ</p>
+                    </div>
+                    <div class="card-footer">
+                        <button @onclick="() => EditBook(book.Id)" class="btn btn-primary btn-sm">Edit</button>
+                        <button @onclick="() => DeleteBook(book.Id)" class="btn btn-danger btn-sm">Delete</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <button @onclick="CreateBook" class="btn btn-success mt-4">Add New Book</button>
+    
+}
+
+@code {
+    private IEnumerable<Book> books;
+
+    protected override async Task OnInitializedAsync()
+    {
+        books = await BookService.GetAllProducts();
+    }
+
+    private void CreateBook()
+    {
+        NavigationManager.NavigateTo("/create-book");
+    }
+    private void EditBook(Guid id)
+    {
+        NavigationManager.NavigateTo($"/edit-book/{id}");
+    }
+    private async Task DeleteBook(Guid id)
+    {
+        await BookService.DeleteProduct(id);
+        books = await BookService.GetAllProducts();
+    }
+}
